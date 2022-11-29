@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    android:label="@string/valInicioFrafment"
+    app:startDestination="@id/InicioFragment">
+    <fragment
+        android:id="@+id/InicioFragment"
+        android:name="com.example.app.poo.java.appferreteria.InicioFragment"
+        android:label="@string/valInicioFrafment"
+        tools:layout="@layout/fragment_inicio" />
+    <fragment
+        android:id="@+id/CategoriaFragment"
+        android:name="com.example.app.poo.java.appferreteria.CategoriaFragment"
+        android:label="@string/valCategoriaFrafment"
+        tools:layout="@layout/fragment_categoria" />
+    <fragment
+        android:id="@+id/CarritoFragment"
+        android:name="com.example.app.poo.java.appferreteria.CarritoFragment"
+        android:label="@string/valCarritoFrafment"
+        tools:layout="@layout/fragment_carrito" />
+    <fragment
+        android:id="@+id/CuentaFragment"
+        android:name="com.example.app.poo.java.appferreteria.CuentaFragment"
+        android:label="@string/valCuentaFrafment"
+        tools:layout="@layout/fragment_cuenta" />
+</navigation>

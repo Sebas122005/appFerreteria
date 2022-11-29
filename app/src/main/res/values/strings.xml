@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AppFerreteria</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="valInicioFrafment">Inicio</string>
+    <string name="valCategoriaFrafment">Categoria</string>
+    <string name="valCarritoFrafment">Carrito</string>
+    <string name="valCuentaFrafment">Mi Cuenta</string>
+
+
+</resources>

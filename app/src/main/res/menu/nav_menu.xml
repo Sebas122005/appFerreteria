@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/InicioFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/valInicioFrafment" />
+
+    <item
+        android:id="@+id/CategoriaFragment"
+        android:icon="@drawable/ic_categoria"
+        android:title="@string/valCategoriaFrafment" />
+
+    <item
+        android:id="@+id/CarritoFragment"
+        android:icon="@drawable/ic_carrito"
+        android:title="@string/valCarritoFrafment" />
+
+    <item
+        android:id="@+id/CuentaFragment"
+        android:icon="@drawable/ic_user_mic_uenta"
+        android:title="@string/valCuentaFrafment" />
+
+
+</menu>
