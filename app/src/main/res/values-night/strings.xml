@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="valProductos">Productos</string>
+    <string name="valbtnAgregar">Agregar al carrito</string>
+    <string name="valbtnDetalle">Detalle</string>
+    <string name="valbtnRegresar" />
+</resources>

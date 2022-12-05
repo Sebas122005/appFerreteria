@@ -7,22 +7,22 @@
     app:startDestination="@id/InicioFragment">
     <fragment
         android:id="@+id/InicioFragment"
-        android:name="com.example.app.poo.java.appferreteria.InicioFragment"
+        android:name="com.example.app.poo.java.appferreteria.view.fragments.InicioFragment"
         android:label="@string/valInicioFrafment"
         tools:layout="@layout/fragment_inicio" />
     <fragment
         android:id="@+id/CategoriaFragment"
-        android:name="com.example.app.poo.java.appferreteria.CategoriaFragment"
+        android:name="com.example.app.poo.java.appferreteria.view.fragments.CategoriaFragment"
         android:label="@string/valCategoriaFrafment"
         tools:layout="@layout/fragment_categoria" />
     <fragment
         android:id="@+id/CarritoFragment"
-        android:name="com.example.app.poo.java.appferreteria.CarritoFragment"
+        android:name="com.example.app.poo.java.appferreteria.view.fragments.CarritoFragment"
         android:label="@string/valCarritoFrafment"
         tools:layout="@layout/fragment_carrito" />
     <fragment
         android:id="@+id/CuentaFragment"
-        android:name="com.example.app.poo.java.appferreteria.CuentaFragment"
+        android:name="com.example.app.poo.java.appferreteria.view.fragments.CuentaFragment"
         android:label="@string/valCuentaFrafment"
         tools:layout="@layout/fragment_cuenta" />
 </navigation>

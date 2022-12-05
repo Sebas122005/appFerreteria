@@ -1,4 +1,4 @@
-package com.example.app.poo.java.appferreteria;
+package com.example.app.poo.java.appferreteria.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -8,6 +8,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 
+import com.example.app.poo.java.appferreteria.R;
 import com.example.app.poo.java.appferreteria.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
