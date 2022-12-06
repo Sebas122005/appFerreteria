@@ -13,6 +13,4 @@ public interface Servicios {
     @GET("producto/custom")
     public Call<List<ResponseProducto>> getProductos();
 
-
-
 }
