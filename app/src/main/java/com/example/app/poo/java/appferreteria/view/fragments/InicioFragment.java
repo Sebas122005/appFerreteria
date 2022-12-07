@@ -1,10 +1,7 @@
 package com.example.app.poo.java.appferreteria.view.fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,33 +17,31 @@ import java.util.List;
 
 public class InicioFragment extends Fragment {
 
-    FragmentInicioBinding binding;
-
+    private FragmentInicioBinding binding;
     private ProductoViewModel productoViewModel;
-
-
+    private ProductoAdapter productoAdapter= new ProductoAdapter();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         binding = FragmentInicioBinding.inflate(inflater,container,false);
-        productoViewModel = new ViewModelProvider(this).get(ProductoViewModel.class);
+
+        productoViewModel = new ViewModelProvider(requireActivity()).get(ProductoViewModel.class);
+
+        binding.rvListaProductos.setLayoutManager(
+                new LinearLayoutManager(requireActivity()));
+        binding.rvListaProductos.setAdapter(productoAdapter);
         productoViewModel.getProductos();
-        ProductoAdapter adapter = new ProductoAdapter();
-        binding.rvListaProductos.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.rvListaProductos.setAdapter(adapter);
-        productoViewModel.listProductosMutableLiveData.observe(getActivity(),
+
+        productoViewModel.listProductosMutableLiveData.observe(getViewLifecycleOwner(),
                 new Observer<List<ResponseProducto>>() {
                     @Override
                     public void onChanged(List<ResponseProducto> responseProductos) {
-                        adapter.setListaProductos(responseProductos);
+                        productoAdapter.setListaProductos(responseProductos);
                     }
                 });
 
-
         return binding.getRoot();
-
     }
 }
 

@@ -1,32 +1,24 @@
 package com.example.app.poo.java.appferreteria.retrofit.response;
 
+import java.util.Date;
+
 public class ResponseProducto {
 
-    private Integer id_producto;
+    private long id_producto;
     private String nom_producto;
     private String descripcion;
-    private Integer imagen;
+    private String imagen;
     private Integer id_categoria;
     private Integer stock;
     private Double precio;
+    private Date fecha_modificacion;
     private Boolean estado;
 
-    public ResponseProducto(Integer id_producto, String nom_producto, String descripcion, Integer imagen, Integer id_categoria, Integer stock, Double precio, Boolean estado) {
-        this.id_producto = id_producto;
-        this.nom_producto = nom_producto;
-        this.descripcion = descripcion;
-        this.imagen = imagen;
-        this.id_categoria = id_categoria;
-        this.stock = stock;
-        this.precio = precio;
-        this.estado = estado;
-    }
-
-    public Integer getId_producto() {
+    public long getId_producto() {
         return id_producto;
     }
 
-    public void setId_producto(Integer id_producto) {
+    public void setId_producto(long id_producto) {
         this.id_producto = id_producto;
     }
 
@@ -46,11 +38,11 @@ public class ResponseProducto {
         this.descripcion = descripcion;
     }
 
-    public Integer getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(Integer imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 
@@ -76,6 +68,14 @@ public class ResponseProducto {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public Date getFecha_modificacion() {
+        return fecha_modificacion;
+    }
+
+    public void setFecha_modificacion(Date fecha_modificacion) {
+        this.fecha_modificacion = fecha_modificacion;
     }
 
     public Boolean getEstado() {

@@ -5,20 +5,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ProductoCliente {
 
-    private static final String BASE_URL="http://localhost:8590/apiferreteria/";
-    private static Servicios INSTANCE;
+    private static final String BASE_URL="http://localhost:8080/apiferreteria/";
+    private Servicios INSTANCE;
 
     public ProductoCliente(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
         INSTANCE = retrofit.create(Servicios.class);
-
     }
 
-    public static Servicios getINSTANCE(){
+
+    public Servicios getINSTANCE(){
         return INSTANCE;
     }
-
-
 
 }

@@ -1,6 +1,7 @@
 package com.example.app.poo.java.appferreteria.viewmodel;
 
 import android.app.Application;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,25 +21,25 @@ import retrofit2.Response;
 
 public class ProductoViewModel extends AndroidViewModel {
 
+
+
+    public MutableLiveData<List<ResponseProducto>> listProductosMutableLiveData = new MutableLiveData<>();
+
     public ProductoViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public MutableLiveData<List<ResponseProducto>> listProductosMutableLiveData = new MutableLiveData<>();
-    public MutableLiveData<String> productos = new MutableLiveData<>();
-
-
     public void getProductos(){
-        ProductoCliente.getINSTANCE().getProductos().enqueue(new Callback<List<ResponseProducto>>() {
+        new ProductoCliente().getINSTANCE().getProductos().enqueue(new Callback<List<ResponseProducto>>() {
             @Override
             public void onResponse(Call<List<ResponseProducto>> call, Response<List<ResponseProducto>> response) {
+                Log.i("DATAREST",response.body().toString());
                 listProductosMutableLiveData.setValue(response.body());
             }
-
             @Override
             public void onFailure(Call<List<ResponseProducto>> call, Throwable t) {
+                Log.i("ERROR",t.getMessage().toString());
                 t.printStackTrace();
-                productos.setValue(t.getMessage());
             }
         });
     }
