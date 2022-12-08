@@ -1,8 +1,12 @@
 package com.example.app.poo.java.appferreteria.retrofit.request;
 
 public class RequestLogin {
+
     private String usuario;
     private String contrasenia;
+
+
+
 
     public String getUsuario() {
         return usuario;
@@ -20,3 +24,5 @@ public class RequestLogin {
         this.contrasenia = contrasenia;
     }
 }
+
+
