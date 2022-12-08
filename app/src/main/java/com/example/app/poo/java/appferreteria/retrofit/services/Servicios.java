@@ -10,7 +10,6 @@ import retrofit2.http.GET;
 
 public interface Servicios {
 
-
     @GET("producto/custom")
     public Call<List<ResponseProducto>> getProductos();
 
