@@ -10,6 +10,26 @@
     <string name="valbtnAgregar">Agregar al carrito</string>
     <string name="valbtnDetalle">Detalle</string>
     <string name="valbtnRegresar">Regresar</string>
+    <string name="valusuario">Ingrese su Usuario</string>
+    <string name="btnlogin">Ingresar</string>
+    <string name="btnregistrar">Registrar</string>
+    <string name="etpasword" />
+    <string name="etpassword">Ingrese su Contraseña</string>
+    <string name="etcontraseña">Ingrese su contraseña</string>
+    <string name="valtituloregistro">Registrar Usuario</string>
+    <string name="valnombreregistro">Registre su nombre</string>
+    <string name="valapepaterno">Apellido Paterno</string>
+    <string name="valapematerno">Apellido Materno</string>
+    <string name="valdni">dni</string>
+    <string name="valdireccion">dirección</string>
+    <string name="valfechadenacimiento">fecha de nacimiento</string>
+    <string name="btnregistrarse">REGISTRARSE</string>
+    <string name="btnirlogin">REGRESAR AL LOGIN</string>
+    <string name="valcorreo">correo electronico</string>
+    <string name="valcelular">Ingrese su Celular</string>
+    <string name="valetusuario">Usuario</string>
+    <string name="valetcontraseña">Contraseña</string>
+    <string name="btnregistro">REGISTRARSE</string>
 
 
 </resources>
