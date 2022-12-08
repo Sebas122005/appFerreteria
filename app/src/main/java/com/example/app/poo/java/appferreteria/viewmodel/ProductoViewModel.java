@@ -2,16 +2,13 @@ package com.example.app.poo.java.appferreteria.viewmodel;
 
 import android.app.Application;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseProducto;
-import com.example.app.poo.java.appferreteria.retrofit.services.ProductoCliente;
-import com.example.app.poo.java.appferreteria.view.MainActivity;
-import com.example.app.poo.java.appferreteria.view.fragments.InicioFragment;
+import com.example.app.poo.java.appferreteria.retrofit.services.Cliente;
 
 import java.util.List;
 
@@ -30,7 +27,7 @@ public class ProductoViewModel extends AndroidViewModel {
     }
 
     public void getProductos(){
-        new ProductoCliente().getINSTANCE().getProductos().enqueue(new Callback<List<ResponseProducto>>() {
+        new Cliente().getINSTANCE().getProductos().enqueue(new Callback<List<ResponseProducto>>() {
             @Override
             public void onResponse(Call<List<ResponseProducto>> call, Response<List<ResponseProducto>> response) {
                 Log.i("DATAREST",response.body().toString());

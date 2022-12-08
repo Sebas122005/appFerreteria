@@ -49,4 +49,5 @@ public class ResponseCategoria {
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
+
 }

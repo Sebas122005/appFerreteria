@@ -19,7 +19,8 @@ public class InicioFragment extends Fragment {
 
     private FragmentInicioBinding binding;
     private ProductoViewModel productoViewModel;
-    private ProductoAdapter productoAdapter= new ProductoAdapter();
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,9 +31,9 @@ public class InicioFragment extends Fragment {
 
         binding.rvListaProductos.setLayoutManager(
                 new LinearLayoutManager(requireActivity()));
+        ProductoAdapter productoAdapter= new ProductoAdapter(requireActivity());
         binding.rvListaProductos.setAdapter(productoAdapter);
         productoViewModel.getProductos();
-
         productoViewModel.listProductosMutableLiveData.observe(getViewLifecycleOwner(),
                 new Observer<List<ResponseProducto>>() {
                     @Override
