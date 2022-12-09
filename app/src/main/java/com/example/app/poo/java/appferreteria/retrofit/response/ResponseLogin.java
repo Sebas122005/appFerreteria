@@ -1,7 +1,14 @@
 package com.example.app.poo.java.appferreteria.retrofit.response;
 
+import java.util.Date;
+
 public class ResponseLogin {
-    private long id_persona;
+
+    private Boolean rpta;
+    private Long id_cuenta;
+    private String usuario;
+    private String contrasenia;
+    private Long id_persona;
     private String nombres;
     private String ape_paterno;
     private String ape_materno;
@@ -9,18 +16,50 @@ public class ResponseLogin {
     private String dni;
     private String direccion;
     private String foto;
-    private String fecha_nacimiento;
-    private String fecha_registro;
+    private Date fecha_nacimiento;
     private String correo;
     private String num_celular;
     private String telefono;
-    private String fecha_modificacion;
+    private Date fecha_modificacion;
+    private String mensaje;
 
-    public long isId_persona() {
+    public Boolean getRpta() {
+        return rpta;
+    }
+
+    public void setRpta(Boolean rpta) {
+        this.rpta = rpta;
+    }
+
+    public Long getId_cuenta() {
+        return id_cuenta;
+    }
+
+    public void setId_cuenta(Long id_cuenta) {
+        this.id_cuenta = id_cuenta;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public Long getId_persona() {
         return id_persona;
     }
 
-    public void setId_persona(long id_persona) {
+    public void setId_persona(Long id_persona) {
         this.id_persona = id_persona;
     }
 
@@ -80,20 +119,12 @@ public class ResponseLogin {
         this.foto = foto;
     }
 
-    public String getFecha_nacimiento() {
+    public Date getFecha_nacimiento() {
         return fecha_nacimiento;
     }
 
-    public void setFecha_nacimiento(String fecha_nacimiento) {
+    public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
-    }
-
-    public String getFecha_registro() {
-        return fecha_registro;
-    }
-
-    public void setFecha_registro(String fecha_registro) {
-        this.fecha_registro = fecha_registro;
     }
 
     public String getCorreo() {
@@ -120,11 +151,19 @@ public class ResponseLogin {
         this.telefono = telefono;
     }
 
-    public String getFecha_modificacion() {
+    public Date getFecha_modificacion() {
         return fecha_modificacion;
     }
 
-    public void setFecha_modificacion(String fecha_modificacion) {
+    public void setFecha_modificacion(Date fecha_modificacion) {
         this.fecha_modificacion = fecha_modificacion;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
 }

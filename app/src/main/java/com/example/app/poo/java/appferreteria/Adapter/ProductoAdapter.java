@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide;
 import com.example.app.poo.java.appferreteria.databinding.ItemProductoBinding;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseProducto;
 import com.example.app.poo.java.appferreteria.view.DetalleProductoActivity;
+import com.example.app.poo.java.appferreteria.view.fragments.CarritoFragment;
+import com.example.app.poo.java.appferreteria.view.fragments.InicioFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,7 @@ import java.util.List;
 public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHolder>{
 
     private List<ResponseProducto> listaProductos;
+    public List<ResponseProducto> listaCarito;
     private Context context;
 
     public ProductoAdapter(Context context) {
@@ -52,6 +55,23 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
                 context.startActivity(intent);
             }
         });
+
+        holder.binding.btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(listaCarito.contains(obj)){
+                    listaCarito.add(obj);
+                    holder.binding.btnAgregar.setText("Quitar del Carrito");
+                }
+                else {
+                    listaCarito.remove(obj);
+                    holder.binding.btnAgregar.setText("");
+                }
+                Intent intent = new Intent(context,CarritoFragment.class);
+                intent.putExtra("listaCarrito",(ArrayList<ResponseProducto>)listaCarito);
+            }
+        });
+
     }
 
     @Override
