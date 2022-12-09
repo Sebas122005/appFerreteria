@@ -1,6 +1,7 @@
 package com.example.app.poo.java.appferreteria.viewmodel;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -27,12 +28,13 @@ public class LoginViewModel extends AndroidViewModel {
                 .enqueue(new Callback<ResponseLogin>() {
                     @Override
                     public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
+                        Log.i("DATALOGIN",response.body().toString());
                         loginMutableLiveData.setValue(response.body());
                     }
 
                     @Override
                     public void onFailure(Call<ResponseLogin> call, Throwable t) {
-
+                        t.printStackTrace();
                     }
                 });
 

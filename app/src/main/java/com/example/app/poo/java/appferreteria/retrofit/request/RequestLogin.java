@@ -5,9 +5,6 @@ public class RequestLogin {
     private String usuario;
     private String contrasenia;
 
-
-
-
     public String getUsuario() {
         return usuario;
     }

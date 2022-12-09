@@ -23,7 +23,7 @@ public interface Servicios {
     @GET("categoria/custom")
     public Call<List<ResponseCategoria>> listarCategorias();
 
-    @POST("Cuentas/custom")
+    @POST("cuenta/login")
     public Call<ResponseLogin> login(@Body RequestLogin requestLogin);
 
     @PUT("Personas/custom")
