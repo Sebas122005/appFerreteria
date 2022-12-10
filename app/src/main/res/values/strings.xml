@@ -30,6 +30,9 @@
     <string name="valetusuario">Usuario</string>
     <string name="valetcontraseña">Contraseña</string>
     <string name="btnregistro">REGISTRARSE</string>
+    <string name="valsexo">Genero</string>
+    <string name="valtelefono">Telefonó</string>
+    <string name="etcontrasena">Ingrese su contraseña</string>
 
 
 </resources>

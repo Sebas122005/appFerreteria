@@ -26,7 +26,7 @@ public interface Servicios {
     @POST("cuenta/login")
     public Call<ResponseLogin> login(@Body RequestLogin requestLogin);
 
-    @PUT("Personas/custom")
+    @POST("persona/registrar")
     public Call<ResponseRegistro> registro(@Body RequestRegistro requestRegistro);
 
 

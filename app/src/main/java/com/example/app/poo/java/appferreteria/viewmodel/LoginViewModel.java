@@ -8,7 +8,9 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.app.poo.java.appferreteria.retrofit.request.RequestLogin;
+import com.example.app.poo.java.appferreteria.retrofit.request.RequestRegistro;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseLogin;
+import com.example.app.poo.java.appferreteria.retrofit.response.ResponseRegistro;
 import com.example.app.poo.java.appferreteria.retrofit.services.Cliente;
 
 import retrofit2.Call;
@@ -18,6 +20,8 @@ import retrofit2.Response;
 public class LoginViewModel extends AndroidViewModel {
     public MutableLiveData<ResponseLogin> loginMutableLiveData =
             new MutableLiveData<>();
+    public MutableLiveData<ResponseRegistro> registroMutableLiveData
+            = new MutableLiveData<>();
 
     public LoginViewModel(@NonNull Application application) {
         super(application);
@@ -38,6 +42,9 @@ public class LoginViewModel extends AndroidViewModel {
                     }
                 });
 
+    }
+
+    public void registrarUsuario(RequestRegistro requestRegistro) {
     }
 }
 

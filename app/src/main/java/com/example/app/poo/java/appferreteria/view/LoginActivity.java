@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.btnregistrar.setOnClickListener(this);
         binding.btnlogin.setOnClickListener(this);
         loginViewModel= new ViewModelProvider(this)
                 .get(LoginViewModel.class);
