@@ -28,8 +28,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         binding = ActivityRegistrarUsuarioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        loginViewModel = new ViewModelProvider(this)
-                .get(LoginViewModel.class);
+        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         binding.btnirlogin.setOnClickListener(this);
         binding.btnregistro.setOnClickListener(this);
         loginViewModel.registroMutableLiveData.observe(this,
@@ -63,22 +62,20 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements
         requestRegistro.setNombres(binding.etnombreregistro.getText().toString());
         requestRegistro.setApe_paterno(binding.valapematerno.getText().toString());
         requestRegistro.setApe_materno(binding.valapematerno.getText().toString());
-        requestRegistro.setNum_celular(binding.valcelular.getText().toString());
-        requestRegistro.setDni(binding.valdni.getText().toString());
-        requestRegistro.setTelefono(binding.valtelefono.getText().toString());
         requestRegistro.setSexo(binding.valsexo.getText().toString());
+        requestRegistro.setDni(binding.valdni.getText().toString());
         requestRegistro.setDireccion(binding.valdireccion.getText().toString());
+        requestRegistro.setFoto("");
         requestRegistro.setFecha_nacimiento((Date) binding.valetfecha.getText());
         Date date = new Date();
         requestRegistro.setFecha_registro(date);
         requestRegistro.setFecha_modificacion(date);
         requestRegistro.setCorreo(binding.valcorreo.getText().toString());
+        requestRegistro.setNum_celular(binding.valcelular.getText().toString());
+        requestRegistro.setTelefono(binding.valtelefono.getText().toString());
         requestRegistro.setUsuario(binding.valusuario.getText().toString());
         requestRegistro.setContrasenia(binding.valcontrasena.getText().toString());
         loginViewModel.registrarUsuario(requestRegistro);
-
-
-
 
     }
 }

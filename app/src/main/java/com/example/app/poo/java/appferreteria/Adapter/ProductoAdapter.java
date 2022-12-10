@@ -22,7 +22,7 @@ import java.util.List;
 public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHolder>{
 
     private List<ResponseProducto> listaProductos;
-    public List<ResponseProducto> listaCarito;
+    private List<ResponseProducto> listaCarrito;
     private Context context;
 
     public ProductoAdapter(Context context) {
@@ -37,6 +37,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
                 .inflate(LayoutInflater
                         .from(parent.getContext()),parent,false));
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull ProductoAdapter.ViewHolder holder, int position) {
@@ -59,19 +60,20 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
         holder.binding.btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(listaCarito.contains(obj)){
-                    listaCarito.add(obj);
+                if(listaCarrito.contains(obj)){
+                    listaCarrito.add(obj);
                     holder.binding.btnAgregar.setText("Quitar del Carrito");
                 }
                 else {
-                    listaCarito.remove(obj);
+                    listaCarrito.remove(obj);
                     holder.binding.btnAgregar.setText("");
                 }
                 Intent intent = new Intent(context,CarritoFragment.class);
-                intent.putExtra("listaCarrito",(ArrayList<ResponseProducto>)listaCarito);
+                intent.putExtra("listaCarrito",(ArrayList<ResponseProducto>)listaCarrito);
+
+                
             }
         });
-
     }
 
     @Override

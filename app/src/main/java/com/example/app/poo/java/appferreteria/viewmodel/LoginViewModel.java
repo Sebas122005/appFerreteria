@@ -45,6 +45,21 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
     public void registrarUsuario(RequestRegistro requestRegistro) {
+        new Cliente().getINSTANCE().registro(requestRegistro).enqueue(new Callback<ResponseRegistro>() {
+            @Override
+            public void onResponse(Call<ResponseRegistro> call, Response<ResponseRegistro> response) {
+                Log.i("DATAREGISTRAR",response.body().toString());
+                registroMutableLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<ResponseRegistro> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+
+
+
     }
 }
 
