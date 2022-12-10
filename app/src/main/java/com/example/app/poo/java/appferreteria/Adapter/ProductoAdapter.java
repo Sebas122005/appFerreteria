@@ -71,7 +71,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
                 Intent intent = new Intent(context,CarritoFragment.class);
                 intent.putExtra("listaCarrito",(ArrayList<ResponseProducto>)listaCarrito);
 
-                
+
             }
         });
     }
