@@ -35,16 +35,17 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements
                 new Observer<ResponseRegistro>() {
                     @Override
                     public void onChanged(ResponseRegistro responseRegistro) {
-                        validadRegistroUsuario(responseRegistro);
+                        validarRegistroUsuario(responseRegistro);
                     }
                 });
     }
 
-    private void validadRegistroUsuario(ResponseRegistro responseRegistro) {
+    private void validarRegistroUsuario(ResponseRegistro responseRegistro) {
         Toast.makeText(getApplicationContext(),
                 responseRegistro.getMensaje(),
                 Toast.LENGTH_SHORT).show();
     }
+
 
     @Override
     public void onClick(View view) {

@@ -10,16 +10,22 @@ import com.example.app.poo.java.appferreteria.retrofit.request.RequestLogin;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseLogin;
 import com.example.app.poo.java.appferreteria.viewmodel.LoginViewModel;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener  {
 
     private ActivityLoginBinding binding;
     private LoginViewModel loginViewModel;
-
+    Context context            ;
+    List<RequestLogin> listaLogin= new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +48,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void validarAutentificacion(ResponseLogin responseLogin) {
         if(responseLogin.getRpta()){
-            startActivity(new Intent(LoginActivity.this,
-                    MainActivity.class));
-            finish();
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            intent.putExtra("usuario", responseLogin);
+            startActivity(intent);
         }else{
             Toast.makeText(this,responseLogin.getMensaje(),
-                    Toast.LENGTH_SHORT).show();
+                    Toast.LENGTH_LONG).show();
         }
     }
 
