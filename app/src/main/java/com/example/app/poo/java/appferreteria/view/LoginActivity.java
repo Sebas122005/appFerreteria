@@ -10,6 +10,7 @@ import com.example.app.poo.java.appferreteria.retrofit.request.RequestLogin;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseLogin;
 import com.example.app.poo.java.appferreteria.viewmodel.LoginViewModel;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,8 +26,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.btnregistrar.setOnClickListener(this);
         binding.btnlogin.setOnClickListener(this);
+        binding.btnregistrar.setOnClickListener(this);
         loginViewModel= new ViewModelProvider(this)
                 .get(LoginViewModel.class);
         loginViewModel.loginMutableLiveData.observe(this,
@@ -34,8 +35,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onChanged(ResponseLogin responseLogin) {
                         validarAutentificacion(responseLogin);
-
-
                     }
                 });
     }
@@ -47,7 +46,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
         }else{
             Toast.makeText(this,responseLogin.getMensaje(),
-                    Toast.LENGTH_SHORT).show();
+                    Toast.LENGTH_LONG).show();
         }
     }
 

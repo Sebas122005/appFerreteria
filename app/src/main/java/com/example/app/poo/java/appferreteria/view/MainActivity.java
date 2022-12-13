@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView,navController);
 
-        //getSupportFragmentManager().beginTransaction().add(R.id.,R.id.InicioFragment).commit();
-
 
     }
 

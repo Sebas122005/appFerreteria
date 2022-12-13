@@ -5,18 +5,18 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+
 import com.example.app.poo.java.appferreteria.databinding.ItemProductoBinding;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseProducto;
 import com.example.app.poo.java.appferreteria.view.DetalleProductoActivity;
-import com.example.app.poo.java.appferreteria.view.fragments.CarritoFragment;
-import com.example.app.poo.java.appferreteria.view.fragments.InicioFragment;
-
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHolder>{
@@ -25,9 +25,10 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
     private List<ResponseProducto> listaCarrito;
     private Context context;
 
-    public ProductoAdapter(Context context) {
+    public ProductoAdapter(Context context,List<ResponseProducto> lista) {
         this.listaProductos = new ArrayList<>();
         this.context = context;
+        this.listaCarrito = lista;
     }
 
     @NonNull
@@ -60,20 +61,30 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
         holder.binding.btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(listaCarrito.contains(obj)){
-                    listaCarrito.add(obj);
+                Collection<ResponseProducto> listaaa= new ArrayList<>();
+                listaaa.add(obj);
+                if (listaCarrito!=null){
+                    if(listaCarrito.contains(obj.getNom_producto())){
+                        listaCarrito.removeAll(listaaa);
+                        holder.binding.btnAgregar.setText("Agregar al Carrito");
+                        System.out.println("Producto agregado : "+obj.getNom_producto().toString());
+                    }
+                    else {
+                        listaCarrito.addAll(listaaa);
+                        holder.binding.btnAgregar.setText("Quitar del Carrito");
+                        System.out.println("Producto removido : "+obj.getNom_producto().toString());
+                    }
+                }else {
+                    listaCarrito.addAll(listaaa);
                     holder.binding.btnAgregar.setText("Quitar del Carrito");
+                    System.out.println("Producto removido : "+obj.getNom_producto().toString());
                 }
-                else {
-                    listaCarrito.remove(obj);
-                    holder.binding.btnAgregar.setText("");
-                }
-                Intent intent = new Intent(context,CarritoFragment.class);
-                intent.putExtra("listaCarrito",(ArrayList<ResponseProducto>)listaCarrito);
-
-
             }
         });
+    }
+
+    public List<ResponseProducto> setListaCarrito(){
+        return listaCarrito;
     }
 
     @Override

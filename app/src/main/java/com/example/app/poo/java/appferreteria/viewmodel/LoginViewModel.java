@@ -13,6 +13,8 @@ import com.example.app.poo.java.appferreteria.retrofit.response.ResponseLogin;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseRegistro;
 import com.example.app.poo.java.appferreteria.retrofit.services.Cliente;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,7 +37,6 @@ public class LoginViewModel extends AndroidViewModel {
                         Log.i("DATALOGIN",response.body().toString());
                         loginMutableLiveData.setValue(response.body());
                     }
-
                     @Override
                     public void onFailure(Call<ResponseLogin> call, Throwable t) {
                         t.printStackTrace();
@@ -48,18 +49,14 @@ public class LoginViewModel extends AndroidViewModel {
         new Cliente().getINSTANCE().registro(requestRegistro).enqueue(new Callback<ResponseRegistro>() {
             @Override
             public void onResponse(Call<ResponseRegistro> call, Response<ResponseRegistro> response) {
-                Log.i("DATAREGISTRAR",response.body().toString());
-                registroMutableLiveData.setValue(response.body());
-            }
+                    registroMutableLiveData.setValue(response.body());
 
+            }
             @Override
             public void onFailure(Call<ResponseRegistro> call, Throwable t) {
                 t.printStackTrace();
             }
         });
-
-
-
     }
 }
 
