@@ -33,6 +33,7 @@
     <string name="valsexo">Genero</string>
     <string name="valtelefono">Telefonó</string>
     <string name="etcontrasena">Ingrese su contraseña</string>
+    <string name="btnactualizar">Actualizar</string>
 
 
 </resources>

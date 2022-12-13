@@ -1,8 +1,11 @@
 package com.example.app.poo.java.appferreteria.retrofit.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
-public class ResponseLogin {
+public class ResponseLogin implements Parcelable {
 
     private Boolean rpta;
     private Long id_cuenta;
@@ -22,6 +25,46 @@ public class ResponseLogin {
     private String telefono;
     private Date fecha_modificacion;
     private String mensaje;
+
+    protected ResponseLogin(Parcel in) {
+        byte tmpRpta = in.readByte();
+        rpta = tmpRpta == 0 ? null : tmpRpta == 1;
+        if (in.readByte() == 0) {
+            id_cuenta = null;
+        } else {
+            id_cuenta = in.readLong();
+        }
+        usuario = in.readString();
+        contrasenia = in.readString();
+        if (in.readByte() == 0) {
+            id_persona = null;
+        } else {
+            id_persona = in.readLong();
+        }
+        nombres = in.readString();
+        ape_paterno = in.readString();
+        ape_materno = in.readString();
+        sexo = in.readString();
+        dni = in.readString();
+        direccion = in.readString();
+        foto = in.readString();
+        correo = in.readString();
+        num_celular = in.readString();
+        telefono = in.readString();
+        mensaje = in.readString();
+    }
+
+    public static final Creator<ResponseLogin> CREATOR = new Creator<ResponseLogin>() {
+        @Override
+        public ResponseLogin createFromParcel(Parcel in) {
+            return new ResponseLogin(in);
+        }
+
+        @Override
+        public ResponseLogin[] newArray(int size) {
+            return new ResponseLogin[size];
+        }
+    };
 
     public Boolean getRpta() {
         return rpta;
@@ -165,5 +208,40 @@ public class ResponseLogin {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeByte((byte) (rpta == null ? 0 : rpta ? 1 : 2));
+        if (id_cuenta == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeLong(id_cuenta);
+        }
+        parcel.writeString(usuario);
+        parcel.writeString(contrasenia);
+        if (id_persona == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeLong(id_persona);
+        }
+        parcel.writeString(nombres);
+        parcel.writeString(ape_paterno);
+        parcel.writeString(ape_materno);
+        parcel.writeString(sexo);
+        parcel.writeString(dni);
+        parcel.writeString(direccion);
+        parcel.writeString(foto);
+        parcel.writeString(correo);
+        parcel.writeString(num_celular);
+        parcel.writeString(telefono);
+        parcel.writeString(mensaje);
     }
 }

@@ -32,6 +32,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         binding.btnirlogin.setOnClickListener(this);
         binding.btnregistro.setOnClickListener(this);
+<<<<<<< HEAD
             }
 
     private void validarRegistroUsuario(ResponseRegistro responseRegistro) {
@@ -47,6 +48,31 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements
             Toast.makeText(getApplicationContext(),
                     responseRegistro.getMensaje(),
                     Toast.LENGTH_LONG).show();
+=======
+        loginViewModel.registroMutableLiveData.observe(this,
+                new Observer<ResponseRegistro>() {
+                    @Override
+                    public void onChanged(ResponseRegistro responseRegistro) {
+                        validarRegistroUsuario(responseRegistro);
+                    }
+                });
+    }
+
+    private void validarRegistroUsuario(ResponseRegistro responseRegistro) {
+        Toast.makeText(getApplicationContext(),
+                responseRegistro.getMensaje(),
+                Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.btnirlogin){
+            startActivity(new Intent(RegistrarUsuarioActivity.this,
+                    LoginActivity.class));
+        }else{
+            registrarUsuario();
+>>>>>>> 1fb7762482132500d20a89fc8fdf7bf2ea536685
         }
     }
 
