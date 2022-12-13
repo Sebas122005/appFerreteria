@@ -12,7 +12,7 @@ public class RequestRegistro {
     private String dni;
     private String direccion;
     private String foto;
-    private Date fecha_nacimiento;
+    private String fecha_nacimiento;
     private Date fecha_registro;
     private String correo;
     private String num_celular;
@@ -85,11 +85,11 @@ public class RequestRegistro {
         this.foto = foto;
     }
 
-    public Date getFecha_nacimiento() {
+    public String getFecha_nacimiento() {
         return fecha_nacimiento;
     }
 
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
+    public void setFecha_nacimiento(String fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 

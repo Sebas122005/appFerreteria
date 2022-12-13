@@ -32,23 +32,6 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         binding.btnirlogin.setOnClickListener(this);
         binding.btnregistro.setOnClickListener(this);
-<<<<<<< HEAD
-            }
-
-    private void validarRegistroUsuario(ResponseRegistro responseRegistro) {
-
-        if (responseRegistro.getRpta()){
-            startActivity(new Intent(RegistrarUsuarioActivity.this,LoginActivity.class));
-            Toast.makeText(getApplicationContext(),
-                    "Usuario Registrado",
-                    Toast.LENGTH_LONG).show();
-            finish();
-        }
-        else {
-            Toast.makeText(getApplicationContext(),
-                    responseRegistro.getMensaje(),
-                    Toast.LENGTH_LONG).show();
-=======
         loginViewModel.registroMutableLiveData.observe(this,
                 new Observer<ResponseRegistro>() {
                     @Override
@@ -72,44 +55,27 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements
                     LoginActivity.class));
         }else{
             registrarUsuario();
->>>>>>> 1fb7762482132500d20a89fc8fdf7bf2ea536685
         }
+
     }
 
     private void registrarUsuario() {
         RequestRegistro requestRegistro = new RequestRegistro();
         requestRegistro.setNombres(binding.etnombreregistro.getText().toString());
-        requestRegistro.setApe_paterno(binding.valapepaterno.getText().toString());
+        requestRegistro.setApe_paterno(binding.valapematerno.getText().toString());
         requestRegistro.setApe_materno(binding.valapematerno.getText().toString());
         requestRegistro.setSexo(binding.valsexo.getText().toString());
         requestRegistro.setDni(binding.valdni.getText().toString());
         requestRegistro.setDireccion(binding.valdireccion.getText().toString());
-        requestRegistro.setFoto("foto");
+        requestRegistro.setFoto("");
         Date date = new Date();
-        requestRegistro.setFecha_nacimiento(date);
-        requestRegistro.setFecha_registro(date);
-        requestRegistro.setFecha_modificacion(date);
+        requestRegistro.setFecha_nacimiento(binding.valetfecha.getText().toString());
         requestRegistro.setCorreo(binding.valcorreo.getText().toString());
         requestRegistro.setNum_celular(binding.valcelular.getText().toString());
         requestRegistro.setTelefono(binding.valtelefono.getText().toString());
         requestRegistro.setUsuario(binding.valusuario.getText().toString());
         requestRegistro.setContrasenia(binding.valcontrasena.getText().toString());
         loginViewModel.registrarUsuario(requestRegistro);
-    }
 
-    @Override
-    public void onClick(View view) {
-        if(view.getId() == binding.btnregistro.getId()){
-            registrarUsuario();
-            loginViewModel.registroMutableLiveData.observe(this,
-                    new Observer<ResponseRegistro>() {
-                        @Override
-                        public void onChanged(ResponseRegistro responseRegistro) {
-                            validarRegistroUsuario(responseRegistro);
-                        }
-                    });
-        }else{
-            startActivity(new Intent(RegistrarUsuarioActivity.this,LoginActivity.class));
-        }
     }
 }
