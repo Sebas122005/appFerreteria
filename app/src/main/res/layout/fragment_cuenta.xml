@@ -87,7 +87,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:enabled="true"
-            android:inputType="textPersonName"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtNumcelular"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -114,7 +114,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:enabled="true"
-            android:inputType="textPersonName"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtCorreo"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -126,7 +126,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:enabled="true"
-            android:inputType="textPersonName"
+            android:inputType="textWebEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtFechanacimiento"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -193,7 +193,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:enabled="true"
-            android:inputType="textPersonName"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtSexo"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -274,7 +274,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:enabled="true"
-            android:inputType="textPersonName"
+            android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDireccion"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -298,7 +298,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:enabled="true"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtNombreusuario"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
