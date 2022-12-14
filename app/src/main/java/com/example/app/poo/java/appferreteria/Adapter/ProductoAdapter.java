@@ -61,6 +61,8 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
         holder.binding.btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                System.out.println(obj.getNom_producto());
                 Collection<ResponseProducto> listaaa= new ArrayList<>();
                 listaaa.add(obj);
                 if (listaCarrito!=null){

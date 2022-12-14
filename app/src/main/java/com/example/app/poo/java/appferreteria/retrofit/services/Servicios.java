@@ -29,5 +29,4 @@ public interface Servicios {
     @POST("persona/registrar")
     public Call<ResponseRegistro> registro(@Body RequestRegistro requestRegistro);
 
-
 }

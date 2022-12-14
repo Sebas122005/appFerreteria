@@ -24,8 +24,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private ActivityLoginBinding binding;
     private LoginViewModel loginViewModel;
-    Context context            ;
-    List<RequestLogin> listaLogin= new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +44,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void validarAutentificacion(ResponseLogin responseLogin) {
         if(responseLogin.getRpta()){
-            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            Intent intent = new Intent(this,MainActivity.class);
             intent.putExtra("usuario", responseLogin);
             startActivity(intent);
+            finish();
         }else{
             Toast.makeText(this,responseLogin.getMensaje(),
                     Toast.LENGTH_LONG).show();

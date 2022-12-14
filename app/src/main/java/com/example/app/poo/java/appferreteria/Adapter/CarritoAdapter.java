@@ -24,6 +24,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
         this.listaCarrito = lista;
         this.context = context;
     }
+
     @NonNull
     @Override
     public CarritoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

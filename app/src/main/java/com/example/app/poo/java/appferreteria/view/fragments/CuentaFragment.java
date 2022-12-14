@@ -34,7 +34,7 @@ public class CuentaFragment extends Fragment {
         binding = FragmentCuentaBinding.inflate(inflater,container,false);
 
 
-
+/*
 
         loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
         binding = FragmentCuentaBinding.inflate(getLayoutInflater());
@@ -50,7 +50,9 @@ public class CuentaFragment extends Fragment {
 
 
                     }
-                });
+                });*/
+
+
         return binding.getRoot();
     }
 

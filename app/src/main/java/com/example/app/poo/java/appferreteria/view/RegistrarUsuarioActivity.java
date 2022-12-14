@@ -23,7 +23,6 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements
         View.OnClickListener{
     private ActivityRegistrarUsuarioBinding binding;
     private LoginViewModel loginViewModel;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +75,5 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements
         requestRegistro.setUsuario(binding.valusuario.getText().toString());
         requestRegistro.setContrasenia(binding.valcontrasena.getText().toString());
         loginViewModel.registrarUsuario(requestRegistro);
-
     }
 }

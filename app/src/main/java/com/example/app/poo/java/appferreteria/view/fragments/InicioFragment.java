@@ -28,8 +28,6 @@ public class InicioFragment extends Fragment {
     List<ResponseProducto> lista;
     Context context;
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
