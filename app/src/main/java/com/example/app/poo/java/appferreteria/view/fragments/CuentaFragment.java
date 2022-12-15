@@ -2,6 +2,7 @@ package com.example.app.poo.java.appferreteria.view.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.bumptech.glide.Glide;
 import com.example.app.poo.java.appferreteria.Adapter.CarritoAdapter;
 import com.example.app.poo.java.appferreteria.databinding.FragmentCarritoBinding;
 import com.example.app.poo.java.appferreteria.databinding.FragmentCuentaBinding;
@@ -25,14 +27,14 @@ public class CuentaFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        /*
         getParentFragmentManager().setFragmentResultListener("keyInfo", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 response = result.getParcelable("keyInfo");
                 System.out.println("Usuario " + response.getUsuario());
             }
-        });
+        });*/
     }
 
     @Override
@@ -40,6 +42,7 @@ public class CuentaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding= FragmentCuentaBinding.inflate(inflater, container, false);
+        binding.imgcuenta.setImageResource(R.drawable.img_user);
         //binding.txtNombre.setText(response.getNombres().toString());
         return  binding.getRoot();
     }
@@ -47,7 +50,7 @@ public class CuentaFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.txtNombre.setText(response.getNombres().toString());
+        //binding.txtNombre.setText(response.getNombres().toString());
     }
 
 }
