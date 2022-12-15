@@ -1,5 +1,7 @@
 package com.example.app.poo.java.appferreteria.view.fragments;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,9 @@ import android.view.ViewGroup;
 import com.example.app.poo.java.appferreteria.Adapter.CarritoAdapter;
 import com.example.app.poo.java.appferreteria.databinding.FragmentCarritoBinding;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseProducto;
+import com.example.app.poo.java.appferreteria.view.LoginActivity;
+import com.example.app.poo.java.appferreteria.view.MainActivity;
+import com.example.app.poo.java.appferreteria.view.ReservaActivity;
 import com.example.app.poo.java.appferreteria.viewmodel.ProductoViewModel;
 
 import java.util.ArrayList;
@@ -28,6 +33,7 @@ public class CarritoFragment extends Fragment {
     FragmentCarritoBinding binding;
     List<ResponseProducto>lista= new ArrayList<>();
     ProductoViewModel viewModel;
+    Context context;
 
 
     @Override
@@ -61,6 +67,15 @@ public class CarritoFragment extends Fragment {
                             adapter.setListaCarrito(lista);
                         }
                     });
+            binding.btnHacerReserva.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getContext(), ReservaActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+
             return binding.getRoot();
 
     }
