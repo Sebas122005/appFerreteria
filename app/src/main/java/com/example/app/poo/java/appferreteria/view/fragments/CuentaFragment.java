@@ -20,6 +20,8 @@ import com.example.app.poo.java.appferreteria.databinding.FragmentCuentaBinding;
 import com.example.app.poo.java.appferreteria.R;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseLogin;
 import com.example.app.poo.java.appferreteria.view.LoginActivity;
+import com.example.app.poo.java.appferreteria.view.MainActivity;
+
 public class CuentaFragment extends Fragment {
     private FragmentCuentaBinding binding;
     ResponseLogin response;
@@ -44,6 +46,15 @@ public class CuentaFragment extends Fragment {
         binding= FragmentCuentaBinding.inflate(inflater, container, false);
         binding.imgcuenta.setImageResource(R.drawable.img_user);
         //binding.txtNombre.setText(response.getNombres().toString());
+        binding.btnsalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         return  binding.getRoot();
     }
 
