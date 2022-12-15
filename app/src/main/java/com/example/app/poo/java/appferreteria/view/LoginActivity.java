@@ -1,6 +1,7 @@
 package com.example.app.poo.java.appferreteria.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -8,6 +9,8 @@ import com.example.app.poo.java.appferreteria.R;
 import com.example.app.poo.java.appferreteria.databinding.ActivityLoginBinding;
 import com.example.app.poo.java.appferreteria.retrofit.request.RequestLogin;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseLogin;
+import com.example.app.poo.java.appferreteria.retrofit.response.ResponseProducto;
+import com.example.app.poo.java.appferreteria.view.fragments.CuentaFragment;
 import com.example.app.poo.java.appferreteria.viewmodel.LoginViewModel;
 
 import android.content.Context;
@@ -44,10 +47,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void validarAutentificacion(ResponseLogin responseLogin) {
         if(responseLogin.getRpta()){
+            CuentaFragment fragment = new CuentaFragment();
             Intent intent = new Intent(this,MainActivity.class);
-            Bundle user = new Bundle();
-            user.putParcelable("user",responseLogin);
-            intent.putExtras(user);
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("keyInfo",responseLogin);
+            getSupportFragmentManager().setFragmentResult("keyInfo",bundle);
             startActivity(intent);
         }else{
             Toast.makeText(this,responseLogin.getMensaje(),

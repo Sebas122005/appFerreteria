@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.app.poo.java.appferreteria.Adapter.ProductoAdapter;
+import com.example.app.poo.java.appferreteria.R;
 import com.example.app.poo.java.appferreteria.databinding.FragmentInicioBinding;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseProducto;
 import com.example.app.poo.java.appferreteria.view.CarritoActivity;
@@ -45,14 +46,10 @@ public class InicioFragment extends Fragment {
                         productoAdapter.setListaProductos(responseProductos);
                     }
                 });
-        binding.btnIrCarro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), CarritoActivity.class);
-                //intent.putExtra("ProductosAgregados",(ArrayList<ResponseProducto>)lista);
-                startActivity(intent);
-            }
-        });
+        Bundle bundle =new Bundle();
+        lista=productoAdapter.setListaCarrito(lista);
+        bundle.putParcelableArrayList("key",(ArrayList<ResponseProducto>)lista);
+        getParentFragmentManager().setFragmentResult("key",bundle);
         return binding.getRoot();
     }
 }

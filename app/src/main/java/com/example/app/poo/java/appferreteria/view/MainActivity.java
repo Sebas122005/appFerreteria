@@ -5,6 +5,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
@@ -30,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this,R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView,navController);
-
+        /*Intent intent = new Intent(this,MainActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("key",responseLogin);
+        getParentFragmentManager().setFragmentResult("key",bundle);*/
     }
 }
 

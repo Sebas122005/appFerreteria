@@ -6,23 +6,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
-import com.example.app.poo.java.appferreteria.Adapter.CategoriaAdapter;
-import com.example.app.poo.java.appferreteria.databinding.FragmentCategoriaBinding;
+import androidx.fragment.app.FragmentResultListener;
 import com.example.app.poo.java.appferreteria.databinding.FragmentCuentaBinding;
-import com.example.app.poo.java.appferreteria.retrofit.response.ResponseCategoria;
 import com.example.app.poo.java.appferreteria.R;
+import com.example.app.poo.java.appferreteria.retrofit.response.ResponseLogin;
 import com.example.app.poo.java.appferreteria.view.LoginActivity;
-import com.example.app.poo.java.appferreteria.viewmodel.CategoriaViewModel;
-
-import java.util.List;
-
 public class CuentaFragment extends Fragment {
     private FragmentCuentaBinding binding;
+    ResponseLogin response;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        getParentFragmentManager().setFragmentResultListener("keyInfo", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                response = result.getParcelable("keyInfo");
+                System.out.println("Usuario "+response.getUsuario());
+            }
+        });
+    }
 
 
     @Override
@@ -31,6 +38,7 @@ public class CuentaFragment extends Fragment {
 
         binding = FragmentCuentaBinding.inflate(inflater,container,false);
         binding.imgcuenta.setImageResource(R.drawable.img_user);
+        binding.txtNombre.setText(response.getNombres());
         binding.btnsalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,4 +48,10 @@ public class CuentaFragment extends Fragment {
         });
         return binding.getRoot();
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
 }

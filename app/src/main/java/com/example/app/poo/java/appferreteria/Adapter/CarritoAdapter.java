@@ -49,6 +49,11 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
 
     }
 
+    public void setListaCarrito(List<ResponseProducto> lista){
+        this.listaCarrito.addAll(lista);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return listaCarrito.size();

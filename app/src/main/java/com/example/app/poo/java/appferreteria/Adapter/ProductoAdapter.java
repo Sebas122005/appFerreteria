@@ -73,7 +73,9 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
         });
     }
 
-    public List<ResponseProducto> setListaCarrito(){
+    public List<ResponseProducto> setListaCarrito(List<ResponseProducto> list){
+        this.listaCarrito.addAll(list);
+        notifyDataSetChanged();
         return listaCarrito;
     }
 

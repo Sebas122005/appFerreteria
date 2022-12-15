@@ -29,4 +29,8 @@ public interface Servicios {
     @POST("persona/registrar")
     public Call<ResponseRegistro> registro(@Body RequestRegistro requestRegistro);
 
+    //actualizar
+    @PUT("persona/actualizarDatos")
+    public Call<ResponseRegistro> actualizarUsuario(@Body RequestRegistro requestRegistro);
+
 }

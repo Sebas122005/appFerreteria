@@ -18,6 +18,7 @@ public class RequestRegistro {
     private String num_celular;
     private String telefono;
     private Date fecha_modificacion;
+    private Long id_cuenta;
     private String usuario;
     private String contrasenia;
 
@@ -131,6 +132,14 @@ public class RequestRegistro {
 
     public void setFecha_modificacion(Date fecha_modificacion) {
         this.fecha_modificacion = fecha_modificacion;
+    }
+
+    public Long getId_cuenta() {
+        return id_cuenta;
+    }
+
+    public void setId_cuenta(Long id_cuenta) {
+        this.id_cuenta = id_cuenta;
     }
 
     public String getUsuario() {

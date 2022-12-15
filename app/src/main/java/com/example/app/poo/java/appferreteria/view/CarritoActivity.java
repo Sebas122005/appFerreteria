@@ -23,8 +23,5 @@ public class CarritoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCarritoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        /*List<ResponseProducto> listaPAgregados = (ArrayList<ResponseProducto>)getIntent().getSerializableExtra("ProductosAgregados");
-        CarritoAdapter adapter = new CarritoAdapter(this,listaPAgregados);
-        binding.rvListaCarritoActivity.setAdapter(adapter);*/
     }
 }

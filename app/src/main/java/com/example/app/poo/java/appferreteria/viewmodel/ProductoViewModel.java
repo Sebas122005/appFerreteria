@@ -21,6 +21,7 @@ public class ProductoViewModel extends AndroidViewModel {
 
 
     public MutableLiveData<List<ResponseProducto>> listProductosMutableLiveData = new MutableLiveData<>();
+    public MutableLiveData<List<ResponseProducto>> listCarrMutableLiveData = new MutableLiveData<>();
 
     public ProductoViewModel(@NonNull Application application) {
         super(application);
@@ -39,6 +40,10 @@ public class ProductoViewModel extends AndroidViewModel {
                 t.printStackTrace();
             }
         });
+    }
+
+    public void cargarCarrrito(List<ResponseProducto> lista){
+        listCarrMutableLiveData.setValue(lista);
     }
 
 }
