@@ -10,6 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
+import com.example.app.poo.java.appferreteria.Adapter.CarritoAdapter;
+import com.example.app.poo.java.appferreteria.databinding.FragmentCarritoBinding;
 import com.example.app.poo.java.appferreteria.databinding.FragmentCuentaBinding;
 import com.example.app.poo.java.appferreteria.R;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseLogin;
@@ -30,4 +34,20 @@ public class CuentaFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        binding= FragmentCuentaBinding.inflate(inflater, container, false);
+        //binding.txtNombre.setText(response.getNombres().toString());
+        return  binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.txtNombre.setText(response.getNombres().toString());
+    }
+
 }

@@ -19,48 +19,52 @@ import com.example.app.poo.java.appferreteria.databinding.FragmentCarritoBinding
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseProducto;
 import com.example.app.poo.java.appferreteria.viewmodel.ProductoViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class CarritoFragment extends Fragment {
 
     FragmentCarritoBinding binding;
-    List<ResponseProducto>lista;
+    List<ResponseProducto>lista= new ArrayList<>();
     ProductoViewModel viewModel;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+            getParentFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
+                @Override
+                public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                    lista = result.getParcelableArrayList("key");
+                    System.out.println("Longitud : " + lista.size() + "Productos" + lista.get(0).getNom_producto());
 
-        getParentFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                lista = result.getParcelableArrayList("key");
-                System.out.println("Longitud : "+lista.size()+"Productos"+lista.get(0).getNom_producto());
-            }
-        });
+                }
+            });
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        binding= FragmentCarritoBinding.inflate(inflater, container, false);
-        binding.rvListaCarrito.setLayoutManager(new LinearLayoutManager(requireActivity()));
-        CarritoAdapter adapter = new CarritoAdapter(requireActivity(),lista);
-        binding.rvListaCarrito.setAdapter(adapter);
-        /*viewModel.cargarCarrrito(lista);
-        viewModel.listProductosMutableLiveData.observe(getViewLifecycleOwner(),
-                new Observer<List<ResponseProducto>>() {
-                    @Override
-                    public void onChanged(List<ResponseProducto> responseProductos) {
-                        adapter.setListaCarrito(responseProductos);
-                    }
-                });
+            binding = FragmentCarritoBinding.inflate(inflater, container, false);
+            viewModel = new ViewModelProvider(requireActivity()).get(ProductoViewModel.class);
+            binding.rvListaCarrito.setLayoutManager(new LinearLayoutManager(requireActivity()));
+            CarritoAdapter adapter = new CarritoAdapter(requireActivity(), lista);
+            binding.rvListaCarrito.setAdapter(adapter);
+            viewModel.cargarCarrrito(lista);
+            viewModel.listCarrMutableLiveData.observe(getViewLifecycleOwner(),
+                    new Observer<List<ResponseProducto>>() {
+                        @Override
+                        public void onChanged(List<ResponseProducto> list) {
+                            adapter.setListaCarrito(lista);
+                        }
+                    });
+            return binding.getRoot();
 
-         */
-        return  binding.getRoot();
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

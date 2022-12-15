@@ -13,6 +13,7 @@ import com.example.app.poo.java.appferreteria.databinding.ItemProductoAgregadoBi
 import com.example.app.poo.java.appferreteria.databinding.ItemProductoBinding;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseProducto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHolder>{
@@ -36,10 +37,15 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull CarritoAdapter.ViewHolder holder, int position) {
         final ResponseProducto obj = listaCarrito.get(position);
-        holder.binding.txtNombreProducto.setText(obj.getNom_producto().toString());
+        holder.binding.txtNombreProducto.setText("Producto : "+obj.getNom_producto().toString());
         holder.binding.txtPUnitario.setText(obj.getPrecio().toString());
         Glide.with(holder.binding.getRoot()).load(obj.getImagen()).into(
                 holder.binding.imgProducto);
+        holder.binding.txtCantidadProducto.setText("1");
+        Integer cant =Integer.parseInt(holder.binding.txtCantidadProducto.getText().toString());
+        Double precio =Double.parseDouble(holder.binding.txtPUnitario.getText().toString());
+        holder.binding.txtSubtotal.setText(""+(cant * precio));
+        holder.binding.txtSubtotal.setEnabled(false);
         holder.binding.btnQuitar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
