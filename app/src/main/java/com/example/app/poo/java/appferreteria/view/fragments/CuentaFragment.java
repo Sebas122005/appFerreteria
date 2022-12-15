@@ -26,32 +26,8 @@ public class CuentaFragment extends Fragment {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 response = result.getParcelable("keyInfo");
-                System.out.println("Usuario "+response.getUsuario());
+                System.out.println("Usuario " + response.getUsuario());
             }
         });
     }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        binding = FragmentCuentaBinding.inflate(inflater,container,false);
-        binding.imgcuenta.setImageResource(R.drawable.img_user);
-        binding.txtNombre.setText(response.getNombres());
-        binding.btnsalir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-        return binding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-
 }
