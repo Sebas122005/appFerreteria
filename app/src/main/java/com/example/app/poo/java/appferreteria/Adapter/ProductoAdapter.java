@@ -61,26 +61,14 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
         holder.binding.btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                System.out.println(obj.getNom_producto());
-                Collection<ResponseProducto> listaaa= new ArrayList<>();
-                listaaa.add(obj);
-                if (listaCarrito!=null){
-                    if(listaCarrito.contains(obj.getNom_producto())){
-                        listaCarrito.removeAll(listaaa);
-                        holder.binding.btnAgregar.setText("Agregar al Carrito");
-                        System.out.println("Producto agregado : "+obj.getNom_producto().toString());
-                    }
-                    else {
-                        listaCarrito.addAll(listaaa);
-                        holder.binding.btnAgregar.setText("Quitar del Carrito");
-                        System.out.println("Producto removido : "+obj.getNom_producto().toString());
-                    }
+                if (listaCarrito.contains(obj)){
+                    listaCarrito.remove(obj);
+                    holder.binding.btnAgregar.setText("Agregar al Carrito");
                 }else {
-                    listaCarrito.addAll(listaaa);
+                    listaCarrito.add(obj);
                     holder.binding.btnAgregar.setText("Quitar del Carrito");
-                    System.out.println("Producto removido : "+obj.getNom_producto().toString());
                 }
+                System.out.println("Lista : "+listaCarrito.size());
             }
         });
     }

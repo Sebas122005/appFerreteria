@@ -30,7 +30,7 @@ public class CuentaFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentCuentaBinding.inflate(inflater,container,false);
-        //binding.imgcuenta.setImageResource(R.drawable.img_user);
+        binding.imgcuenta.setImageResource(R.drawable.img_user);
         binding.btnsalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

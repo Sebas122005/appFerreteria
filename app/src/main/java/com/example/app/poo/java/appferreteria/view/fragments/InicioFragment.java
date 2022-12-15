@@ -15,6 +15,7 @@ import com.example.app.poo.java.appferreteria.Adapter.ProductoAdapter;
 import com.example.app.poo.java.appferreteria.databinding.FragmentInicioBinding;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseProducto;
 import com.example.app.poo.java.appferreteria.view.CarritoActivity;
+import com.example.app.poo.java.appferreteria.view.LoginActivity;
 import com.example.app.poo.java.appferreteria.view.MainActivity;
 import com.example.app.poo.java.appferreteria.viewmodel.ProductoViewModel;
 
@@ -25,16 +26,13 @@ public class InicioFragment extends Fragment {
 
     private FragmentInicioBinding binding;
     private ProductoViewModel productoViewModel;
-    List<ResponseProducto> lista;
+    List<ResponseProducto> lista= new ArrayList<>();
     Context context;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentInicioBinding.inflate(inflater,container,false);
-
         productoViewModel = new ViewModelProvider(requireActivity()).get(ProductoViewModel.class);
-
         binding.rvListaProductos.setLayoutManager(
                 new LinearLayoutManager(requireActivity()));
         ProductoAdapter productoAdapter= new ProductoAdapter(requireActivity(),lista);
@@ -50,13 +48,11 @@ public class InicioFragment extends Fragment {
         binding.btnIrCarro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                lista = productoAdapter.setListaCarrito();
-                Intent intent = new Intent(requireActivity(), CarritoActivity.class);
-                intent.putExtra("ProductosAgregados",(ArrayList<ResponseProducto>)lista);
-                requireActivity().startActivity(intent);
+                Intent intent = new Intent(getContext(), CarritoActivity.class);
+                //intent.putExtra("ProductosAgregados",(ArrayList<ResponseProducto>)lista);
+                startActivity(intent);
             }
         });
-
         return binding.getRoot();
     }
 }

@@ -45,9 +45,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void validarAutentificacion(ResponseLogin responseLogin) {
         if(responseLogin.getRpta()){
             Intent intent = new Intent(this,MainActivity.class);
-            intent.putExtra("usuario", responseLogin);
+            Bundle user = new Bundle();
+            user.putParcelable("user",responseLogin);
+            intent.putExtras(user);
             startActivity(intent);
-            finish();
         }else{
             Toast.makeText(this,responseLogin.getMensaje(),
                     Toast.LENGTH_LONG).show();

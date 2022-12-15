@@ -12,6 +12,7 @@ import com.example.app.poo.java.appferreteria.databinding.ActivityCarritoBinding
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseProducto;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CarritoActivity extends AppCompatActivity {
 
@@ -22,9 +23,8 @@ public class CarritoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCarritoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        ArrayList<ResponseProducto> listaPAgregados = (ArrayList<ResponseProducto>)getIntent().getSerializableExtra("ProductosAgregados");
+        /*List<ResponseProducto> listaPAgregados = (ArrayList<ResponseProducto>)getIntent().getSerializableExtra("ProductosAgregados");
         CarritoAdapter adapter = new CarritoAdapter(this,listaPAgregados);
-        binding.rvListaCarritoActivity.setAdapter(adapter);
+        binding.rvListaCarritoActivity.setAdapter(adapter);*/
     }
 }
