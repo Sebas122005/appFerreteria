@@ -110,16 +110,6 @@
                 android:minHeight="48dp"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <EditText
-                android:id="@+id/valsexo"
-                android:layout_width="159dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/valsexo"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
-                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
         <EditText
@@ -136,6 +126,37 @@
             app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/valusuario" />
+
+        <RadioGroup
+            android:id="@+id/rggenero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Elija su Genero:"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/btnmasculino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnmasculino" />
+
+            <RadioButton
+                android:id="@+id/btnfemenino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnfemenino" />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/titulo"
@@ -176,9 +197,9 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.951"
+            app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+            app:layout_constraintTop_toBottomOf="@+id/rggenero" />
 
         <EditText
             android:id="@+id/valetfecha"
@@ -231,7 +252,9 @@
             android:layout_height="45dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"
             android:text="@string/btnregistro"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/valcontrasena" />
 
@@ -242,8 +265,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="4dp"
+            android:layout_marginBottom="50dp"
             android:layout_weight="0"
             android:text="@string/btnirlogin"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btnregistro"
             app:layout_constraintTop_toBottomOf="@+id/valcontrasena" />

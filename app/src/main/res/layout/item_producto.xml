@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/imgProducto"
-            android:layout_width="337dp"
-            android:layout_height="117dp"
+            android:layout_width="329dp"
+            android:layout_height="93dp"
             android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.516"
@@ -62,20 +62,19 @@
             android:id="@+id/btnDetalleProducto"
             android:layout_width="128dp"
             android:layout_height="56dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="36dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/valbtnDetalle"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnAgregar"
             app:layout_constraintTop_toBottomOf="@+id/txtStock" />
 
         <Button
             android:id="@+id/btnAgregar"
             android:layout_width="177dp"
             android:layout_height="58dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="24dp"
             android:text="@string/valbtnAgregar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnDetalleProducto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtStock" />
     </androidx.constraintlayout.widget.ConstraintLayout>

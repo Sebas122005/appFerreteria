@@ -57,14 +57,22 @@ public class RegistrarUsuarioActivity extends AppCompatActivity implements
         }
 
     }
+    private String obtenerGenero(){
+        String genero="";
+        switch (binding.rggenero.getCheckedRadioButtonId()){
+            case R.id.btnmasculino: genero= binding.btnmasculino.getText().toString().trim();break;
+            case R.id.btnfemenino: genero= binding.btnfemenino.getText().toString().trim();break;
+        }
+        return genero;
+    }
 
     private void registrarUsuario() {
         RequestRegistro requestRegistro = new RequestRegistro();
         requestRegistro.setNombres(binding.etnombreregistro.getText().toString());
         requestRegistro.setApe_paterno(binding.valapematerno.getText().toString());
         requestRegistro.setApe_materno(binding.valapematerno.getText().toString());
-        requestRegistro.setSexo(binding.valsexo.getText().toString());
         requestRegistro.setDni(binding.valdni.getText().toString());
+        requestRegistro.setSexo(obtenerGenero());
         requestRegistro.setDireccion(binding.valdireccion.getText().toString());
         requestRegistro.setFoto("");
         Date date = new Date();
