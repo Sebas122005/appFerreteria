@@ -14,15 +14,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.app.poo.java.appferreteria.Adapter.CategoriaAdapter;
 import com.example.app.poo.java.appferreteria.databinding.FragmentCategoriaBinding;
 import com.example.app.poo.java.appferreteria.databinding.FragmentCuentaBinding;
+import com.example.app.poo.java.appferreteria.retrofit.request.RequestLogin;
+import com.example.app.poo.java.appferreteria.retrofit.request.RequestRegistro;
 import com.example.app.poo.java.appferreteria.retrofit.response.ResponseCategoria;
 import com.example.app.poo.java.appferreteria.R;
+import com.example.app.poo.java.appferreteria.retrofit.response.ResponseLogin;
 import com.example.app.poo.java.appferreteria.view.LoginActivity;
 import com.example.app.poo.java.appferreteria.viewmodel.CategoriaViewModel;
 
+import java.util.Date;
 import java.util.List;
 
 public class CuentaFragment extends Fragment {
     private FragmentCuentaBinding binding;
+    private Object RequestLogin;
 
 
     @Override
@@ -40,4 +45,5 @@ public class CuentaFragment extends Fragment {
         });
         return binding.getRoot();
     }
+
 }

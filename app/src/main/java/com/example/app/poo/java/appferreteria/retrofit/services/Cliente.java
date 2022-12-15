@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Cliente {
 
-    private static final String BASE_URL="http://192.168.137.1:8080/apiferreteria/";
+    private static final String BASE_URL="http://192.168.1.133:8080/apiferreteria/";
     private Servicios INSTANCE;
 
     public Cliente(){
